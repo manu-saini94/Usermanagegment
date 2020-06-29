@@ -39,6 +39,17 @@
 
 	</dependencies>
 
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<url>https://repo.spring.io/snapshot</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-milestones</id>
+			<url>https://repo.spring.io/milestone</url>
+		</pluginRepository>
+	</pluginRepositories>
+
 
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -58,6 +69,42 @@
 					<warSourceDirectory>WebContent</warSourceDirectory>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<configuration>
+					<type>runtime</type>
+					<container>
+						<containerId>tomcat9x</containerId>
+						<type>remote</type>
+					</container>
+
+					<configuration>
+
+						<properties>
+							<cargo.remote.username>deployer</cargo.remote.username>
+							<cargo.remote.password>deployer</cargo.remote.password>
+
+							<cargo.tomcat.manager.url>http://http://localhost:8181//manager</cargo.tomcat.manager.url>
+						</properties>
+
+					</configuration>
+
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 </project>
