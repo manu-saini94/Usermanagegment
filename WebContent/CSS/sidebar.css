@@ -1,0 +1,8 @@
+.sidebar {
+	height: 92.4vh;
+	width: 240px;
+	background-color: #2B333E;
+	position: fixed;
+	margin-top: 7.6vh;
+	overflow-y: auto;
+}
