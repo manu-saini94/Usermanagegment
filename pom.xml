@@ -97,7 +97,7 @@
 				<configuration>
 					<type>runtime</type>
 					<container>
-						<containerId>tomcat9x</containerId>
+						<containerId>tomcat5x</containerId>
 						<type>remote</type>
 					</container>
 
